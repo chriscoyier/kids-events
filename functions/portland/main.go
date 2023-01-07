@@ -27,7 +27,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 		kidsEvents = append(kidsEvents, KidsEvent{
 			Title: e.ChildText(".views-field-title .field-content a"),
 			URL:   e.ChildAttr(".views-field-title .field-content a", "href"),
-			Date:  e.ChildText(".views-field-field-date .field-content"),
+			Date:  e.ChildAttr(".date-display-single", "content"),
 		})
 	})
 
