@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.scss";
 
 export async function getServerSideProps() {
   const res = await fetch(
-    `${process.env.SITE_URL}/.netlify/functions/portland`
+    `${process.env.SITE_URL}/.netlify/functions/get-events`
   );
   const data = await res.json();
 
