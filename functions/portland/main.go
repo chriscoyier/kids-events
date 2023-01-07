@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"log"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -32,10 +33,15 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 
 	c.Visit("https://www.portland5.com/event-types/kids")
 
+	b, err := json.Marshal(kidsEvents)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	return &events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		Headers:         map[string]string{"Content-Type": "text/json"},
-		Body:            json.Marshal(kidsEvents),
+		Body:            string(b),
 		IsBase64Encoded: false,
 	}, nil
 }
