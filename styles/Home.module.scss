@@ -6,22 +6,26 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: 2rem;
 }
 
 .card {
-  padding: 1rem;
+  padding: 1.2rem;
   background: white;
   color: #222;
+  border-radius: var(--radius-2);
+  border: 3px solid var(--purple-5);
 }
 
 .eventList {
   margin: 0;
   dt {
+    opacity: 0.4;
     text-transform: uppercase;
     font-weight: 600;
     font-size: var(--font-size-sm);
+    letter-spacing: 0.1rem;
     &:not(:first-child) {
       margin-block-start: 1rem;
     }
