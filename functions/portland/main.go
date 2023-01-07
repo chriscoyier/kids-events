@@ -14,23 +14,33 @@ type KidsEvent struct {
 	Title string `json:"title"`
 	URL   string `json:"url"`
 	Date  string `json:"date"`
+	Venue string `json:"venue"`
 }
+
+const (
+	DOMAIN   = "www.portland5.com"
+	FULL_URL = "https://" + DOMAIN
+)
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	kidsEvents := []KidsEvent{}
 
 	c := colly.NewCollector(
-		colly.AllowedDomains("www.portland5.com"),
+		colly.AllowedDomains(DOMAIN),
 	)
 
 	c.OnHTML(".views-row", func(e *colly.HTMLElement) {
 		titleText := e.ChildText(".views-field-title .field-content a")
+		url := FULL_URL + e.ChildAttr(".views-field-title .field-content a", "href")
+		date := e.ChildAttr(".date-display-single", "content")
+		venue := e.ChildText(".views-field-field-event-venue")
 
 		if titleText != "" {
 			kidsEvents = append(kidsEvents, KidsEvent{
 				Title: titleText,
-				URL:   e.ChildAttr(".views-field-title .field-content a", "href"),
-				Date:  e.ChildAttr(".date-display-single", "content"),
+				URL:   url,
+				Date:  date,
+				Venue: venue,
 			})
 		}
 	})
