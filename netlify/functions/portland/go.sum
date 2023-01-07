@@ -8,6 +8,8 @@ github.com/antchfx/xmlquery v1.3.13 h1:wqhTv2BN5MzYg9rnPVtZb3IWP8kW6WV/ebAY0FCTI
 github.com/antchfx/xmlquery v1.3.13/go.mod h1:3w2RvQvTz+DaT5fSgsELkSJcdNgkmg6vuXDEuhdwsPQ=
 github.com/antchfx/xpath v1.2.1 h1:qhp4EW6aCOVr5XIkT+l6LJ9ck/JsUH/yyauNgTQkBF8=
 github.com/antchfx/xpath v1.2.1/go.mod h1:i54GszH55fYfBmoZXapTHN8T8tkcHfRgLyVwwqzXNcs=
+github.com/aws/aws-lambda-go v1.36.1 h1:CJxGkL9uKszIASRDxzcOcLX6juzTLoTKtCIgUGcTjTU=
+github.com/aws/aws-lambda-go v1.36.1/go.mod h1:jwFe2KmMsHmffA1X2R09hH6lFzJQxzI8qK17ewzbQMM=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/gobwas/glob v0.2.3 h1:A4xDbljILXROh+kObIiy5kIaPYD8e96x1tgBhUI5J+Y=
