@@ -24,11 +24,15 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	)
 
 	c.OnHTML(".views-row", func(e *colly.HTMLElement) {
-		kidsEvents = append(kidsEvents, KidsEvent{
-			Title: e.ChildText(".views-field-title .field-content a"),
-			URL:   e.ChildAttr(".views-field-title .field-content a", "href"),
-			Date:  e.ChildAttr(".date-display-single", "content"),
-		})
+		titleText := e.ChildText(".views-field-title .field-content a")
+
+		if titleText != "" {
+			kidsEvents = append(kidsEvents, KidsEvent{
+				Title: titleText,
+				URL:   e.ChildAttr(".views-field-title .field-content a", "href"),
+				Date:  e.ChildAttr(".date-display-single", "content"),
+			})
+		}
 	})
 
 	c.Visit("https://www.portland5.com/event-types/kids")
