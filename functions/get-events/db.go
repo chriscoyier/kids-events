@@ -18,5 +18,7 @@ func getDataFromDB() ([]KidsEvent, error) {
 		return []KidsEvent{}, err
 	}
 
+	// TODO: Filter out past events.
+
 	return results, nil
 }
