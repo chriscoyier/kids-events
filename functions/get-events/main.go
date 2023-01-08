@@ -18,8 +18,8 @@ type KidsEvent struct {
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	kidsEvents := getPortland5Data()
-
 	kidsEvents = append(kidsEvents, getSellwoodData()...)
+	kidsEvents = append(kidsEvents, getZooData()...)
 
 	b, err := json.Marshal(kidsEvents)
 	if err != nil {

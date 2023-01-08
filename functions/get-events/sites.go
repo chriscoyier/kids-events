@@ -12,6 +12,10 @@ const (
 	SELLWOOD_DOMAIN      = "www.sellwoodcommunityhouse.org"
 	SELLWOOD_LINK_PREFIX = "https://" + SELLWOOD_DOMAIN
 	SELLWOOD_CRAWL_URL   = "https://www.sellwoodcommunityhouse.org/community-events-1"
+
+	ZOO_DOMAIN      = "www.oregonzoo.org"
+	ZOO_LINK_PREFIX = "https://" + SELLWOOD_DOMAIN
+	ZOO_CRAWL_URL   = "https://www.oregonzoo.org/events"
 )
 
 func getPortland5Data() []KidsEvent {
@@ -69,6 +73,34 @@ func getSellwoodData() []KidsEvent {
 	})
 
 	c.Visit(SELLWOOD_CRAWL_URL)
+
+	return kidsEvents
+}
+
+func getZooData() []KidsEvent {
+	kidsEvents := []KidsEvent{}
+
+	c := colly.NewCollector(
+		colly.AllowedDomains(ZOO_DOMAIN),
+	)
+
+	c.OnHTML(".node-event", func(e *colly.HTMLElement) {
+		titleText := e.ChildText(".node-title")
+		url := ZOO_LINK_PREFIX + e.ChildAttr(".node-title a", "href")
+		date := e.ChildAttr(".date-display-start", "content")
+		venue := "Oregon Zoo"
+
+		if titleText != "" {
+			kidsEvents = append(kidsEvents, KidsEvent{
+				Title: titleText,
+				URL:   url,
+				Date:  date,
+				Venue: venue,
+			})
+		}
+	})
+
+	c.Visit(ZOO_CRAWL_URL)
 
 	return kidsEvents
 }
