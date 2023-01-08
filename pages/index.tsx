@@ -11,8 +11,10 @@ export async function getServerSideProps() {
 }
 
 type kidEvent = {
+  id: number;
   title: string;
   date: string;
+  display: boolean;
   url: string;
   venue: string;
 };
@@ -37,8 +39,10 @@ export default function Home(props: { data: kidEvent[] }) {
           {props.data.map((event) => {
             const date = new Date(event.date).toDateString();
 
+            if (event.display === false) return null;
+
             return (
-              <div key={event.title} className={styles.card}>
+              <div key={event.id} className={styles.card}>
                 <dl className={styles.eventList}>
                   <dt>Title</dt>
                   <dd>
