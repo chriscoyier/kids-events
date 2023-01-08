@@ -1,9 +1,12 @@
 [functions]
-  directory = "functions/"
+directory = "functions/"
+
+[functions."scrape"]
+schedule = "@hourly"
 
 [build]
-  command = "npm run build"
-  publish = ".next"
+command = "npm run build"
+publish = ".next"
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs"
+package = "@netlify/plugin-nextjs"
