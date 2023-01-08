@@ -12,16 +12,21 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: var(--font-size-base);
-  line-height: 1.5;
-  background: var(--gray-9);
+  line-height: var(---font-lineheight-3);
+  font-weight: var(--font-weight-3);
+  background: var(--gradient-2);
   color: white;
 }
 
+h1 {
+  font-weight: var(--font-weight-9);
+}
 h3 {
   margin: 0;
-  line-height: 1.1;
+  font-weight: var(--font-weight-8);
+  line-height: var(--font-lineheight-0);
 }
 
 a {

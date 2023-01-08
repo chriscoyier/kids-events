@@ -1,21 +1,21 @@
 .main {
-  max-inline-size: 40rem;
+  max-inline-size: var(--size-lg);
   margin-inline: auto;
-  padding: 2rem;
+  padding: var(--size-7);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(var(--size-14), 1fr));
+  gap: var(--size-5);
 }
 
 .card {
-  padding: 1.2rem;
-  background: white;
-  color: #222;
-  border-radius: var(--radius-2);
-  border: 3px solid var(--purple-5);
+  padding: var(--size-5);
+  background: var(--gray-1);
+  color: var(--gray-9);
+  box-shadow: var(--shadow-3);
+  border-radius: var(--radius-3);
 }
 
 .eventList {
@@ -23,11 +23,12 @@
   dt {
     opacity: 0.4;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: var(--font-weight-5);
     font-size: var(--font-size-sm);
-    letter-spacing: 0.1rem;
+    font-family: var(--font-mono);
+    letter-spacing: var(--font-letterspacing-4);
     &:not(:first-child) {
-      margin-block-start: 1rem;
+      margin-block-start: var(--size-4);
     }
   }
   dt,
