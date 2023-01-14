@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/gocolly/colly"
 )
 
@@ -14,7 +16,7 @@ const (
 	SELLWOOD_CRAWL_URL   = "https://www.sellwoodcommunityhouse.org/community-events-1"
 
 	ZOO_DOMAIN      = "www.oregonzoo.org"
-	ZOO_LINK_PREFIX = "https://" + SELLWOOD_DOMAIN
+	ZOO_LINK_PREFIX = "https://" + ZOO_DOMAIN
 	ZOO_CRAWL_URL   = "https://www.oregonzoo.org/events"
 )
 
@@ -59,9 +61,11 @@ func getSellwoodData() []KidsEvent {
 		url := SELLWOOD_LINK_PREFIX + e.ChildAttr(".ProductList-item-link", "href")
 
 		// either need to get the data out of the title or follow the link to the next page and get it from there.
-		date := ""
+		date := "2099-01-01 00:00:00"
 
 		venue := "Sellwood Community House"
+
+		fmt.Println("SELLWOOD EVENT", titleText, url, date, venue)
 
 		if titleText != "" {
 			kidsEvents = append(kidsEvents, KidsEvent{
