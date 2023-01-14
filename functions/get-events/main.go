@@ -10,7 +10,7 @@ import (
 )
 
 type KidsEvent struct {
-	ID      int    `json:"id"`
+	ID      string `json:"id"`
 	Title   string `json:"title"` // e.g. "Storytime at the Zoo"
 	URL     string `json:"url"`
 	Date    string `json:"date"`

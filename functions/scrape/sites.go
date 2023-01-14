@@ -33,10 +33,11 @@ func getPortland5Data() []KidsEvent {
 
 		if titleText != "" {
 			kidsEvents = append(kidsEvents, KidsEvent{
-				Title: titleText,
-				URL:   url,
-				Date:  date,
-				Venue: venue,
+				Title:   titleText,
+				URL:     url,
+				Date:    date,
+				Display: true,
+				Venue:   venue,
 			})
 		}
 	})
@@ -64,10 +65,11 @@ func getSellwoodData() []KidsEvent {
 
 		if titleText != "" {
 			kidsEvents = append(kidsEvents, KidsEvent{
-				Title: titleText,
-				URL:   url,
-				Date:  date,
-				Venue: venue,
+				Title:   titleText,
+				URL:     url,
+				Date:    date,
+				Display: true,
+				Venue:   venue,
 			})
 		}
 	})
@@ -92,10 +94,11 @@ func getZooData() []KidsEvent {
 
 		if titleText != "" {
 			kidsEvents = append(kidsEvents, KidsEvent{
-				Title: titleText,
-				URL:   url,
-				Date:  date,
-				Venue: venue,
+				Title:   titleText,
+				URL:     url,
+				Date:    date,
+				Display: true,
+				Venue:   venue,
 			})
 		}
 	})

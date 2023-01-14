@@ -11,7 +11,7 @@ export async function getServerSideProps() {
 }
 
 type kidEvent = {
-  id: number;
+  id: string;
   title: string;
   date: string;
   display: boolean;

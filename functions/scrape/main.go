@@ -8,7 +8,7 @@ import (
 )
 
 type KidsEvent struct {
-	ID      int    `json:"id"`
+	ID      string `json:"id"`
 	Title   string `json:"title"` // e.g. "Storytime at the Zoo"
 	URL     string `json:"url"`
 	Date    string `json:"date"`
@@ -17,10 +17,9 @@ type KidsEvent struct {
 }
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	// TODO:
 	kidsEvents := getPortland5Data()
-	kidsEvents = append(kidsEvents, getSellwoodData()...)
-	kidsEvents = append(kidsEvents, getZooData()...)
+	// kidsEvents = append(kidsEvents, getSellwoodData()...)
+	// kidsEvents = append(kidsEvents, getZooData()...)
 
 	saveToDB(kidsEvents)
 
